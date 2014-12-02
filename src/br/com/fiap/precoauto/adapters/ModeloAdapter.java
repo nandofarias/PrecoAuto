@@ -9,29 +9,29 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import br.com.fiap.precoauto.R;
-import br.com.fiap.precoauto.VO.Marca;
+import br.com.fiap.precoauto.VO.Modelo;
  
  
  
-public class MarcaAdapter extends BaseAdapter {
-    private List<Marca> marcas;
+public class ModeloAdapter extends BaseAdapter {
+    private List<Modelo> modelos;
     private LayoutInflater mLayoutInflater;
  
-    public MarcaAdapter(Context context,List<Marca> marcas){
+    public ModeloAdapter(Context context,List<Modelo> modelos){
  
-    	this.marcas = marcas;
+    	this.modelos = modelos;
  
         mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
  
     @Override
     public int getCount() {
-        return marcas.size();
+        return modelos.size();
     }
  
     @Override
     public Object getItem(int i) {
-        return marcas.get(i);
+        return modelos.get(i);
     }
  
     @Override
@@ -55,7 +55,7 @@ public class MarcaAdapter extends BaseAdapter {
             holder = (ViewHolder)view.getTag();
         }
  
-        String stringItem = marcas.get(position).getNome();
+        String stringItem = modelos.get(position).getNome();
         if (stringItem != null) {
             if (holder.itemName != null) {
                 holder.itemName.setText(stringItem);

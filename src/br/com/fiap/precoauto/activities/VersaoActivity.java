@@ -8,16 +8,20 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 import com.google.gson.Gson;
 
 import br.com.fiap.precoauto.R;
 import br.com.fiap.precoauto.VO.Marca;
+import br.com.fiap.precoauto.VO.Modelo;
+import br.com.fiap.precoauto.VO.Versao;
 import br.com.fiap.precoauto.adapters.MarcaAdapter;
+import br.com.fiap.precoauto.adapters.ModeloAdapter;
+import br.com.fiap.precoauto.adapters.VersaoAdapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
@@ -28,36 +32,38 @@ import android.widget.AdapterView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
-public class MainActivity extends Activity implements
+public class VersaoActivity extends Activity implements
 		SearchView.OnQueryTextListener, SearchView.OnCloseListener {
 	private ListView myList;
 	private SearchView searchView;
-	private MarcaAdapter defaultAdapter;
-	private List<Marca> marcas;
+	private VersaoAdapter defaultAdapter;
+	private List<Versao> versoes;
+	private String idModelo;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.activity_main);
-		myList = (ListView) findViewById(R.id.list);
+		setContentView(R.layout.activity_versao);
+		myList = (ListView) findViewById(R.id.listVersao);
 
-		marcas = new ArrayList<>();
-		defaultAdapter = new MarcaAdapter(MainActivity.this, marcas);
+		Intent i = getIntent();
+		idModelo = i.getStringExtra("idModelo");
+		
+		versoes = new ArrayList<>();
+		defaultAdapter = new VersaoAdapter(VersaoActivity.this, versoes);
 		myList.setAdapter(defaultAdapter);
 		myList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 
-				Toast.makeText(getApplicationContext(),
-						marcas.get(position).getNome(), Toast.LENGTH_LONG)
-						.show();
+				Toast.makeText(getApplicationContext(), ((Versao) defaultAdapter.getItem(position)).getNome(), Toast.LENGTH_LONG).show();
 			}
 		});
 
 		this.init();
 
-		searchView = (SearchView) findViewById(R.id.search);
+		searchView = (SearchView) findViewById(R.id.searchVersao);
 
 		searchView.setIconifiedByDefault(false);
 
@@ -89,16 +95,15 @@ public class MainActivity extends Activity implements
 	}
 
 	private void displayResults(String query) {
-		List<Marca> marcasAux =  new ArrayList<>();
+		List<Versao> versaoAux =  new ArrayList<>();
 		
-		for (Marca marca : marcas) {
-			if (marca.getNome().toLowerCase().trim().contains(query)) {
-				marcasAux.add(marca);
+		for (Versao versao : versoes) {
+			if (versao.getNome().toLowerCase().trim().contains(query)) {
+				versaoAux.add(versao);
 			}
 		}
 		
-		marcas = marcasAux;
-		defaultAdapter = new MarcaAdapter(MainActivity.this, marcasAux);
+		defaultAdapter = new VersaoAdapter(VersaoActivity.this, versaoAux);
 		myList.setAdapter(defaultAdapter);
 
 
@@ -128,7 +133,7 @@ public class MainActivity extends Activity implements
 	private class HttpRequestTask extends AsyncTask<Void, Void, String> {
 		@Override
 		protected String doInBackground(Void... params) {
-			String urlString = "http://www.zillius.com.br/fipe/marcas";
+			String urlString = "http://zillius.com.br/fipe/versoes/"+ idModelo;
 			String resultToDisplay = "";
 
 			InputStream in = null;
@@ -164,9 +169,9 @@ public class MainActivity extends Activity implements
 		protected void onPostExecute(String json) {
 
 			Gson gson = new Gson();
-			Marca[] marcasArray = gson.fromJson(json, Marca[].class);
-			marcas = Arrays.asList(marcasArray);
-			defaultAdapter = new MarcaAdapter(MainActivity.this, marcas);
+			Versao[] versoesArray = gson.fromJson(json, Versao[].class);
+			versoes = Arrays.asList(versoesArray);
+			defaultAdapter = new VersaoAdapter(VersaoActivity.this, versoes);
 			myList.setAdapter(defaultAdapter);
 
 		}

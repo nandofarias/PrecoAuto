@@ -9,29 +9,29 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import br.com.fiap.precoauto.R;
-import br.com.fiap.precoauto.VO.Marca;
+import br.com.fiap.precoauto.VO.Versao;
  
  
  
-public class MarcaAdapter extends BaseAdapter {
-    private List<Marca> marcas;
+public class VersaoAdapter extends BaseAdapter {
+    private List<Versao> versoes;
     private LayoutInflater mLayoutInflater;
  
-    public MarcaAdapter(Context context,List<Marca> marcas){
+    public VersaoAdapter(Context context,List<Versao> versoes){
  
-    	this.marcas = marcas;
+    	this.versoes = versoes;
  
         mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
  
     @Override
     public int getCount() {
-        return marcas.size();
+        return versoes.size();
     }
  
     @Override
     public Object getItem(int i) {
-        return marcas.get(i);
+        return versoes.get(i);
     }
  
     @Override
@@ -55,7 +55,7 @@ public class MarcaAdapter extends BaseAdapter {
             holder = (ViewHolder)view.getTag();
         }
  
-        String stringItem = marcas.get(position).getNome();
+        String stringItem = versoes.get(position).getNome();
         if (stringItem != null) {
             if (holder.itemName != null) {
                 holder.itemName.setText(stringItem);

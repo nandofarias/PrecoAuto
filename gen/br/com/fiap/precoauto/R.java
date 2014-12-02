@@ -150,16 +150,22 @@ public final class R {
         public static final int ic_launcher=0x7f020079;
     }
     public static final class id {
-        public static final int action_refresh=0x7f0a0004;
-        public static final int list=0x7f0a0001;
-        public static final int list_item=0x7f0a0002;
-        public static final int list_item_text_view=0x7f0a0003;
-        public static final int search=0x7f0a0000;
+        public static final int action_refresh=0x7f0a0008;
+        public static final int listMarca=0x7f0a0001;
+        public static final int listModelo=0x7f0a0003;
+        public static final int listVersao=0x7f0a0005;
+        public static final int list_item=0x7f0a0006;
+        public static final int list_item_text_view=0x7f0a0007;
+        public static final int searchMarca=0x7f0a0000;
+        public static final int searchModelo=0x7f0a0002;
+        public static final int searchVersao=0x7f0a0004;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
-        public static final int apptheme_tab_indicator_holo=0x7f030001;
-        public static final int item=0x7f030002;
+        public static final int activity_marca=0x7f030000;
+        public static final int activity_modelo=0x7f030001;
+        public static final int activity_versao=0x7f030002;
+        public static final int apptheme_tab_indicator_holo=0x7f030003;
+        public static final int item=0x7f030004;
     }
     public static final class menu {
         public static final int main=0x7f090000;
