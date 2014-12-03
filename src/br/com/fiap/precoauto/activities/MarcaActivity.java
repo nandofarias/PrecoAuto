@@ -10,12 +10,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.google.gson.Gson;
-
-import br.com.fiap.precoauto.R;
-import br.com.fiap.precoauto.VO.Marca;
-import br.com.fiap.precoauto.adapters.MarcaAdapter;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -23,10 +17,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.Toast;
+import br.com.fiap.precoauto.R;
+import br.com.fiap.precoauto.VO.Marca;
+import br.com.fiap.precoauto.adapters.MarcaAdapter;
+
+import com.google.gson.Gson;
 
 public class MarcaActivity extends Activity implements
 		SearchView.OnQueryTextListener, SearchView.OnCloseListener {
@@ -50,7 +48,7 @@ public class MarcaActivity extends Activity implements
 					int position, long id) {
 
 				Intent i = new Intent(MarcaActivity.this, ModeloActivity.class);
-				i.putExtra("idMarca", ( (Marca) defaultAdapter.getItem(position)).getId());
+				i.putExtra("marca", ((Marca) defaultAdapter.getItem(position)));
 				startActivity(i);
 			}
 		});

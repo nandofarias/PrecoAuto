@@ -1,7 +1,13 @@
 package br.com.fiap.precoauto.VO;
 
-public class Modelo {
+import java.io.Serializable;
+
+public class Modelo implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3016630646467886762L;
 	private String id;
 	private String nome;
 	private String marca;

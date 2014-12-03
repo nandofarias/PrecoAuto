@@ -10,16 +10,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.google.gson.Gson;
-
-import br.com.fiap.precoauto.R;
-import br.com.fiap.precoauto.VO.Marca;
-import br.com.fiap.precoauto.VO.Modelo;
-import br.com.fiap.precoauto.VO.Versao;
-import br.com.fiap.precoauto.adapters.MarcaAdapter;
-import br.com.fiap.precoauto.adapters.ModeloAdapter;
-import br.com.fiap.precoauto.adapters.VersaoAdapter;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -27,10 +17,16 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.Toast;
+import br.com.fiap.precoauto.R;
+import br.com.fiap.precoauto.VO.Marca;
+import br.com.fiap.precoauto.VO.Modelo;
+import br.com.fiap.precoauto.VO.Versao;
+import br.com.fiap.precoauto.adapters.VersaoAdapter;
+
+import com.google.gson.Gson;
 
 public class VersaoActivity extends Activity implements
 		SearchView.OnQueryTextListener, SearchView.OnCloseListener {
@@ -39,6 +35,8 @@ public class VersaoActivity extends Activity implements
 	private VersaoAdapter defaultAdapter;
 	private List<Versao> versoes;
 	private String idModelo;
+	private Marca marca;
+	private Modelo modelo;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -48,7 +46,9 @@ public class VersaoActivity extends Activity implements
 		myList = (ListView) findViewById(R.id.listVersao);
 
 		Intent i = getIntent();
-		idModelo = i.getStringExtra("idModelo");
+		marca = (Marca) i.getSerializableExtra("marca");
+		modelo = (Modelo)i.getSerializableExtra("modelo");
+		idModelo = modelo.getId();
 		
 		versoes = new ArrayList<>();
 		defaultAdapter = new VersaoAdapter(VersaoActivity.this, versoes);
@@ -57,7 +57,11 @@ public class VersaoActivity extends Activity implements
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 
-				Toast.makeText(getApplicationContext(), ((Versao) defaultAdapter.getItem(position)).getNome(), Toast.LENGTH_LONG).show();
+				Intent i = new Intent(VersaoActivity.this, DetalheActivity.class);
+				i.putExtra("marca", marca);
+				i.putExtra("modelo", modelo);
+				i.putExtra("versao", (Versao)defaultAdapter.getItem(position));
+				startActivity(i);
 			}
 		});
 

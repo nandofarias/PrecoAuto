@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/refLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ref"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/refText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Referencia"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+	
+        
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+    	 <TextView
+     		android:id="@+id/marcaLabel"
+     		android:layout_width="wrap_content"
+     		android:layout_height="wrap_content"
+     		android:text="@string/marca"
+     		android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/marcaText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Marca"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+	</LinearLayout>
+	
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+    	 <TextView
+     		android:id="@+id/modeloLabel"
+     		android:layout_width="wrap_content"
+     		android:layout_height="wrap_content"
+     		android:text="@string/modelo"
+     		android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/modeloText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Modelo"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+	</LinearLayout>
+	
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+    	 <TextView
+     		android:id="@+id/anoLabel"
+     		android:layout_width="wrap_content"
+     		android:layout_height="wrap_content"
+     		android:text="@string/ano"
+     		android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/anoText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ano"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+	</LinearLayout>
+	
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+    	 <TextView
+     		android:id="@+id/valorLabel"
+     		android:layout_width="wrap_content"
+     		android:layout_height="wrap_content"
+     		android:text="@string/valor"
+     		android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/valorText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Valor"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+	</LinearLayout>
+	
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+    	 <TextView
+     		android:id="@+id/dataLabel"
+     		android:layout_width="wrap_content"
+     		android:layout_height="wrap_content"
+     		android:text="@string/consulta"
+     		android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/dataText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Data Consulta"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+	</LinearLayout>
+	<LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+		<Button
+		    android:id="@+id/graficoButton"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_gravity="center"
+		    android:text="@string/grafico" />
+    	
+	</LinearLayout>
+</LinearLayout>

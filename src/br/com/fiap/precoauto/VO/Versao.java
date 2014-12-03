@@ -1,7 +1,13 @@
 package br.com.fiap.precoauto.VO;
 
-public class Versao {
+import java.io.Serializable;
+
+public class Versao implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7448160214211036240L;
 	private String id;
 	private String nome;
 	private String modelo;
