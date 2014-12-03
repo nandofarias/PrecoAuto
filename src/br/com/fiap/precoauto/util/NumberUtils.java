@@ -9,7 +9,7 @@ public class NumberUtils {
 	public static Double currencyToDouble(String value) {
 		String cleanString = value.replaceAll("[R|$|,|.]", "");
 		try {
-			BigDecimal parsed = new BigDecimal(cleanString).setScale(2,BigDecimal.ROUND_FLOOR).divide(new BigDecimal(100),BigDecimal.ROUND_FLOOR);                
+			BigDecimal parsed = new BigDecimal(cleanString).setScale(2,BigDecimal.ROUND_FLOOR);                
 			return parsed.doubleValue();
 		} catch (Exception e) {
 			return null;
